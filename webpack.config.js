@@ -2,13 +2,11 @@ const path = require('path');
 
 module.exports = {
     mode: 'development',
-    entry: [
-        './src/silence.js'
-    ],
+    entry: './src/index.js',
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'silence.min.js',
-        publicPath: '/pulbic/'
+        filename: 'bundle.js',
+        publicPath: 'dist'
     },
     module: {
         rules: [
@@ -31,10 +29,8 @@ module.exports = {
     },
     devServer: {
         port: '9000',
-        compress: true,
         index: 'default.htm',
         hot: true,
-        // open:true, 
-        publicPath:"/"
+        contentBase: path.join(__dirname, "public")
     }
 }
